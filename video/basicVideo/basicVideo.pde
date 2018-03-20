@@ -1,35 +1,25 @@
 
-float n = 0.5;
+import processing.video.*;
+
+Capture video;
+
+color sColor = color(0);
+int sX;
+int sY;
+
+
 void setup() {
-  size(500, 500);
-  background(0); 
-  
-  
-  
+  size(640, 480);
+  video = new Capture(this, 640, 480, 30);
+  video.start();  
+  video.loadPixels();
 }
 
-void draw() {
-  background(0); 
-  int a= 100;
-  int b = 100;
-  n = map(mouseX,0,width,0.01,10);
-  stroke(255);
-  translate(width/2,height/2);
-  noFill();
-  beginShape();
-  for (float angle = 0; angle< TWO_PI;angle+=0.01){
-      float na = 2/n;
-      float x = pow(abs(cos(angle)),na) * a *sgn(cos(angle)); ;
-      float y = pow(abs(sin(angle)),na) * b *sgn(sin(angle)); ;
-      vertex(x,y);
-     
-  }
- endShape(CLOSE);
+void captureEvent(Capture video) {  
+  video.read();
 }
 
-
-int sgn(float f){
-  if (f > 0)return 1;
-  else if (f < 0)return -1;
-  else return 0;
+void draw() {  
+  image(video, 0, 0);
+  
 }

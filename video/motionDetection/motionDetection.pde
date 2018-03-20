@@ -2,7 +2,7 @@
 import processing.video.*;
 
 Capture video;
-float treshold = 50;
+float treshold = 35;
 PImage prevFr;
 PImage movementFr;
 
@@ -24,7 +24,6 @@ void captureEvent(Capture video) {
 }
 
 void draw() {  
-  treshold = map(mouseX,0,width,10,100);
   movementFr = createImage(video.width, video.height, RGB);
   for (int i = 0; i < movementFr.pixels.length; i++) {
     movementFr.pixels[i] = color(0);
