@@ -16,7 +16,7 @@ void setup() {
 
 void draw() {
   background(0);
-  //colorMode(HSB);  
+  colorMode(HSB);  
   noStroke();
   move += 0.05;
   float f = 0.05;
@@ -27,7 +27,7 @@ void draw() {
   } 
   for (int y = 0; y<row-1; y++) {
     for (int x = 0; x<col; x++) {
-      fill(zvalue[x][y]);
+      fill(zvalue[x][y],255,255);
       rect(x*scale, y*scale, x+scale, y+scale);
     }
   }

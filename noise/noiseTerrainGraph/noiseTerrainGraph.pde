@@ -33,11 +33,11 @@ void draw() {
   graph.beginDraw();
   graph.colorMode(HSB);
   graph.stroke(map(y, 0, height, 0, 255), 255, 255);
-  
+
   //graph.strokeWeight(1);
   //graph.line(px, 0, x, height);
   graph.strokeWeight(3);
-  
+
   graph.line(px, py, x, y);
   graph.endDraw();
   py=y;
